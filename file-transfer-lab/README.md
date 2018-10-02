@@ -8,6 +8,9 @@ To use files:
 File 'inputfile.txt' is transfered from Client to Server, server receives 100 bytes at a time
 
 Resources used for lab:
+
+https://stackoverflow.com/questions/46775320/simple-python-server-client-file-transfer
+
 https://pastebin.com/KADZpqkM
 
 https://pastebin.com/LySsgEe4
