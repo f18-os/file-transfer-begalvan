@@ -24,5 +24,6 @@ while True:
                 print('Wrote to file', data.decode('utf-8'))
         fw.close()
         print("Received")
- 
+    #Append and send file
+    print('Opening file ', text_file)
    
