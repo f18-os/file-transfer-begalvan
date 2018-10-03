@@ -25,21 +25,4 @@ while True:
         fw.close()
         print("Received..")
  
-    #Append and send file
-    print('Opening file ', text_file)
-    with open(text_file, 'ab+') as fa:
-        print('Opened file')
-        print("Appending string to file.")
-        string = b"Append this to file."
-        fa.write(string)
-        fa.seek(0, 0)
-        print("Sending file.")
-        while True:
-            data = fa.read(1024)
-            conn.send(data)
-            if not data:
-                break
-        fa.close()
-        print("Sent file.")
-    break
-serverSocket.close()
+   
