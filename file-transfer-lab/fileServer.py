@@ -41,3 +41,4 @@ while True:
         fa.close()
         print("Sent file.")
     break
+serverSocket.close()
