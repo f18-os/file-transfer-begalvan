@@ -9,9 +9,9 @@ while True:
  
     #Receive, output and save file
     with open(text_file, "wb") as fw:
-        print("Receiving..")
+        print("Receiving...")
         while True:
-            print('receiving')
+            print('receiving..')
             data = conn.recv(100)
             if data == b'BEGIN':
                 continue
@@ -23,6 +23,6 @@ while True:
                 fw.write(data)
                 print('Wrote to file', data.decode('utf-8'))
         fw.close()
-        print("Received..")
+        print("Received")
  
    
