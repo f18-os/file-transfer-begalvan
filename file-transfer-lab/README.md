@@ -42,7 +42,7 @@ client will immediately send textfile.txt to proxy listening on port 50000, prox
 For this lab assignment I received help from Abigail Lira to understand 
 and implement the concept of "put" a file from client to server and handle different scenarios with files. Also used external resources and links for code reference and examples.
 
-External resources and links for code reference, concept understanding and implementation:
+External resources and links for code reference, concept understanding and lab implementation:
 
 https://stackoverflow.com/questions/46775320/simple-python-server-client-file-transfer
 
