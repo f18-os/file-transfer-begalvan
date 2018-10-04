@@ -39,11 +39,15 @@ python3 stammerProxy.py
 python3 fileClient.py -s localhost:50001
 client will immediately send textfile.txt to proxy listening on port 50000, proxy listening on port 50000 will get file and transfer to server listening on port 50001
 
-* support multiple clients simultaneously using `fork()`
-* gracefully deal with scenarios such as: 
-    * zero length files
-    * user attempts to transmit a file which does not exist
-    * file already exists on the server
-    * the client or server unexpectedly disconnect
-* optional (unless you're taking this course for grad credit): be able to request ("get") files from server
+For this lab assignment I received help from Abigail Lira to understand 
+and implement the concept of "put" a file from client to server and handle different scenarios with files. Also used external resources and links for code reference and examples.
 
+External resources and links for code reference, concept understanding and implementation:
+
+https://stackoverflow.com/questions/46775320/simple-python-server-client-file-transfer
+
+https://pastebin.com/KADZpqkM
+
+https://pastebin.com/LySsgEe4
+
+https://www.bogotobogo.com/python/python_network_programming_server_client_file_transfer.php
