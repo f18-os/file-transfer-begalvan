@@ -4,29 +4,41 @@ Blanca Galván ID#88594199
 
 
 Directory `file-transfer-lab` includes: 
-fileClient.py, fileServer.py, stammerProxy.py and inputfile.txt
+fileClient.py, fileServer.py, stammerProxy.py and textfile.txt
+
+*   `fileClient.py` transfers a file to the server using port 50001
+
+*   `fileServer.py` receives a file from client -up to 100 bytes from the socket at a time- listening on port 50001
 
 *   `stammerProxy.py` forwards tcp streams. It may delay the transmission of data but ensures all data will be forwarded, eventually.
    By default,
    it listens on port 50000 and forwards to localhost:50001.  Use the -?
    option for help.
 
-Directory `framed-echo` includes code that implements framing described below
+The client-server files can be tested with or without and without the proxy
 
-*  `framedClient.py` and `framedServer.py` are a demonstration TCP client and server which exchange frames consisting of byte arrays in the form payload_length:payload where payload_length is in decimal.
+To use files without proxy: 
 
-* FramedForkServer uses `fork()` to handle multiple simultaneous clients.    
+* 1. Open fileServer.py 
+python3 fileServer.py
 
-*  The -? (usage) option prints parameters and default values. 
+* 2. Open fileClient.py
+python3 fileClient.py
+client will immediately send textfile.txt to server, server will receive up to 100 bytes at a time
+form socket and will write data to create new file
 
-*  `framedSock.py` holds the common code used in the client and server including framed send and receive.
+To use files with proxy: 
 
+* 1. Open fileServer.py 
+python3 fileServer.py
 
+* 2. Open stammerProxy.py 
+python3 stammerProxy.py
 
-Your assignment is to write `fileClient.py` and `fileServer.py` which can transfer a file ("put") from a client to the server. Your programs should: 
+* 3. Open fileClient.py
+python3 fileClient.py -s localhost:50001
+client will immediately send textfile.txt to proxy listening on port 50000, proxy listening on port 50000 will get file and transfer to server listening on port 50001
 
-* be in the file-transfer-lab subdir
-* work with and without the proxy
 * support multiple clients simultaneously using `fork()`
 * gracefully deal with scenarios such as: 
     * zero length files
