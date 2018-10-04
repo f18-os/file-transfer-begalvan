@@ -24,7 +24,7 @@ if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     clientSocket.send(b'END ')
     fs.close()
  
-#Receive file
+#Receive file, may not be used
 print("Receiving..")
 with open(file_sent, 'wb') as fw:
     while True:
@@ -33,6 +33,6 @@ with open(file_sent, 'wb') as fw:
             break
         fw.write(data)
     fw.close()
-print("Received..")
+print("Received")
  
 clientSocket.close()
