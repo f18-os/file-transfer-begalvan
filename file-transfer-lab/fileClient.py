@@ -5,7 +5,7 @@ import socket
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((socket.gethostname(), 50001))
  
-text_file = 'inputfile.txt'
+text_file = 'textfile.txt'
  
 #Sending file
 with open(text_file, 'rb') as fs:
