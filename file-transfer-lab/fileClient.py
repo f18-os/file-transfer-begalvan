@@ -1,14 +1,14 @@
 #client file
 
 import socket
+import os
  
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((socket.gethostname(), 50001))
  
 text_file = 'textfile.txt'
- 
-#Sending file
-with open(text_file, 'rb') as fs:
+
+with open(text_file, 'rb') as fs: #send textfile
     #Using with, no file close is necessary,
     #with automatically handles file close
     clientSocket.send(b'BEGIN')
