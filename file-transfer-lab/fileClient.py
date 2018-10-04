@@ -12,10 +12,10 @@ if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     with open(file_sent, 'rb') as fs: #send textfile, handles file close
         clientSocket.send(b'START ')
         while True:
-        data = fs.read(1024)
-        print('Transfering file', data.decode('utf-8')) #uses UTF-8 enconding
-        clientSocket.send(data)
-        print('File sent', data.decode('utf-8'))
+            data = fs.read(1024)
+            print('Transfering file', data.decode('utf-8')) #uses UTF-8 enconding
+            clientSocket.send(data)
+            print('File sent', data.decode('utf-8'))
         if not data:
             print('Breaking from transfering file')
             break
