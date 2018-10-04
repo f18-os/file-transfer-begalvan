@@ -29,7 +29,7 @@ while True:
     #Append and send file
     print('Opening file ', file_sent)
     with open(file_sent, 'ab+') as fa:
-        print('Opened file')
+        print("Opened file")
         print("Appending string to file.")
         string = b"Append this to file."
         fa.write(string)
