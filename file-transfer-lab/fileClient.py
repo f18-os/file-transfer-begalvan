@@ -6,11 +6,9 @@ import os
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((socket.gethostname(), 50001))
  
-text_file = 'textfile.txt'
-
-with open(text_file, 'rb') as fs: #send textfile
-    #Using with, no file close is necessary,
-    #with automatically handles file close
+file_sent = 'textfile.txt'
+if os.path.isfile(file_sent)
+    with open(file_sent, 'rb') as fs: #send textfile, handles file close
     clientSocket.send(b'BEGIN')
     while True:
         data = fs.read(1024)
@@ -25,7 +23,7 @@ with open(text_file, 'rb') as fs: #send textfile
  
 #Receive file
 print("Receiving..")
-with open(text_file, 'wb') as fw:
+with open(file_sent, 'wb') as fw:
     while True:
         data = clientSocket.recv(1024)
         if not data:
