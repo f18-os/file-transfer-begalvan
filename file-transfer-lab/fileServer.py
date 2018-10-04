@@ -10,12 +10,12 @@ while True:
     text_file = 'fileProj.txt'
  
     #Receive, output and save file
-    with open(text_file, "wb") as fw:
+    with open(text_file, "wb") as fw: # opens file and returns stream
         print("Receiving...")
         while True:
             print('receiving..')
-            data = conn.recv(100)
-            if data == b'BEGIN':
+            data = conn.recv(100) #receive up to 100 bytes from the socket
+            if data == b'BEGIN': #bytes-BEGIN
                 continue
             elif data == b'ENDED':
                 print('Breaking from file write')
