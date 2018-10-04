@@ -1,17 +1,13 @@
-To be more precise, correlation and regression analysis are different types of
-analyses. You use correlation analysis when you simply want to fi nd associative
-relationships between distinct things, regardless of if they affect each other. For
-example, there is a correlation between the sale of winter coats and gloves. When
-there is a spike in sales of winter coats, there tends to be a spike in the sale of
-gloves. Note that correlation does not imply causation. It is not that the purchase
-of a winter coat causes or affects a buyer to purchase gloves or vice versa. It is
-that a third thing, cold weather, causes the buyer to purchase both a winter coat
-and gloves.
-You use regression analysis when you want to uncover predictive relationships
-between two things, regardless if they cause each other. By a predictive
-relationship, we mean that the change in value of one variable can help you
-forecast how the other variable will change. For example, you can do regression
-analyses on data about the sales of winter coats and gloves. You can then create
-an equation that tells you that a 15% increase in the sale of winter gloves tends
-to be associated with a 20% increase in coats. Regression analysis also tells you
-about the accuracy of your predictive equation.
+The Arab Spring took place successfully in developing countries with an
+enormous population of tech-savvy and frustrated youth. However, social media’s
+impact on security is not limited to a single part of the world. Young people
+have also used social media to destabilize governments and create security
+problems in stable Western countries. The most prominent example took place
+barely months after the Arab Spring, in London. While many tout the Arab
+Spring as the evidence of the positive impact that social media can have, most
+see the London riots as the evidence of the negative.
+Protests and demonstrations broke out in London after the police controversially
+killed a young man and were not reprimanded. When police attempted to
+disperse a demonstration concerning the killing, violence broke out, culminating
+in riots and copycat riots that lasted for several days across the United Kingdom
+and cost hundreds of millions of pounds in damage.
