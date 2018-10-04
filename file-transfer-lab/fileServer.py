@@ -7,10 +7,10 @@ serverSocket.bind((socket.gethostname(), 50001))
 serverSocket.listen(1)
 while True:
     (conn, address) = serverSocket.accept()
-    text_file = 'recfile.txt'
+    file_sent = 'recfile.txt'
  
     #Receive, output and save file
-    with open(text_file, "wb") as fw: # opens file and returns stream
+    with open(file_sent, "wb") as fw: # opens file and returns stream
         print("Receiving...")
         while True:
             print('receiving..')
@@ -27,8 +27,8 @@ while True:
         fw.close()
         print("Received")
     #Append and send file
-    print('Opening file ', text_file)
-    with open(text_file, 'ab+') as fa:
+    print('Opening file ', file_sent)
+    with open(file_sent, 'ab+') as fa:
         print('Opened file')
         print("Appending string to file.")
         string = b"Append this to file."
