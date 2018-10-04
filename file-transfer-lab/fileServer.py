@@ -7,7 +7,7 @@ serverSocket.bind((socket.gethostname(), 50001))
 serverSocket.listen(1)
 while True:
     (conn, address) = serverSocket.accept()
-    text_file = 'fileProj.txt'
+    text_file = 'recfile.txt'
  
     #Receive, output and save file
     with open(text_file, "wb") as fw: # opens file and returns stream
