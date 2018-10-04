@@ -7,7 +7,8 @@ clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((socket.gethostname(), 50001))
  
 file_sent = 'textfile.txt'
-if os.path.isfile(file_sent)
+
+if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     with open(file_sent, 'rb') as fs: #send textfile, handles file close
     clientSocket.send(b'BEGIN')
     while True:
