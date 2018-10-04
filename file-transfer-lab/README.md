@@ -1,11 +1,10 @@
-# nets-tcp-framed-echo
-tcp echo with framing
+# File Transfer Lab
+CS 4375
+Blanca Galván ID#88594199
 
-Directory `simple-demo` includes a simple tcp echo server & client
 
-Directory `lib` includes the params package required for many of the programs
-
-Directory `stammer-proxy` includes stammerProxy, which is useful for demonstrating and testing framing
+Directory `file-transfer-lab` includes: 
+fileClient.py, fileServer.py, stammerProxy.py and inputfile.txt
 
 *   `stammerProxy.py` forwards tcp streams. It may delay the transmission of data but ensures all data will be forwarded, eventually.
    By default,
