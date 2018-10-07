@@ -1,7 +1,4 @@
 # File Transfer Lab
-CS 4375
-Blanca Galván ID#88594199
-
 
 Directory `file-transfer-lab` includes: 
 fileClient.py, fileServer.py, stammerProxy.py and textfile.txt
