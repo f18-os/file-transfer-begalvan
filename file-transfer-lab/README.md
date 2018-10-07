@@ -42,16 +42,3 @@ To use files with proxy:
         python3 fileClient.py -s localhost:50001
 
         client will immediately send textfile.txt to proxy listening on port 50000, proxy listening on port 50000 will get file and transfer to server listening on port 50001
-
-For this lab assignment I received help from Abigail Lira to understand 
-and implement the concept of "put" a file from client to server and handle different scenarios with files. Also used external resources and links for code reference and examples.
-
-External resources and links for code reference, concept understanding and lab implementation:
-
-https://stackoverflow.com/questions/46775320/simple-python-server-client-file-transfer
-
-https://pastebin.com/KADZpqkM
-
-https://pastebin.com/LySsgEe4
-
-https://www.bogotobogo.com/python/python_network_programming_server_client_file_transfer.php
