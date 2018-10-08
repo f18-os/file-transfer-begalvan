@@ -1,7 +1,7 @@
 #server file
 
 import socket
-import os #new
+import os 
 
  
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
