@@ -1,18 +1,18 @@
 #client file
 
-import socket, os
+import socket
+import os
  
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-clientSocket.connect((socket.gethostname(), 50001)) #connect to server using port 50001
-file_sent = 'textfile.txt'
+clientSocket.connect((socket.gethostname(), 50001))
+ 
+file_sent = 'sentfile.txt'
 
-#testing file type and byte size
-if os.path.isfile(file_sent) and os.stat(file_sent).ST_SIZE !=0: #***changed st
-    
+if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:  
     with open(file_sent, 'rb') as fs: #send textfile, handles file close
         clientSocket.send(b'START ')
         while True:
-            data = fs.read(1024)
+            data = fs.read(1024) 
             print("Transferring file", data.decode('utf-8')) #uses UTF-8 enconding
             clientSocket.send(data)
             print("File sent", data.decode('utf-8'))
@@ -24,7 +24,7 @@ if os.path.isfile(file_sent) and os.stat(file_sent).ST_SIZE !=0: #***changed st
     clientSocket.send(b'END ')
     fs.close()
  
-#Receive file, may not be used
+#Receive file
 print("Receiving..")
 with open(file_sent, 'wb') as fw:
     while True:
