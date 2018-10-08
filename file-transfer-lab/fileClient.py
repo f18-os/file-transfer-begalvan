@@ -27,8 +27,8 @@ if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     clientSocket.send(b'END')
     fs.close()
  
-    #Receive file
-    #print("Receiving..")
+#Receive file
+#print("Receiving..")
     with open(file_sent, 'wb') as fw:
         while True:
             data = clientSocket.recv(1024)
@@ -39,5 +39,3 @@ if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     print("Received")
  
     clientSocket.close()
-else:
-    print("No file found")
