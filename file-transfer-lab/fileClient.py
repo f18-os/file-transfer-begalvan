@@ -6,7 +6,9 @@ clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 clientSocket.connect((socket.gethostname(), 50001)) #connect to server using port 50001
 file_sent = 'textfile.txt'
 
-if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
+#testing file type and byte size
+if os.path.isfile(file_sent) and os.stat(file_sent).ST_SIZE !=0: #***changed st
+    
     with open(file_sent, 'rb') as fs: #send textfile, handles file close
         clientSocket.send(b'START ')
         while True:
