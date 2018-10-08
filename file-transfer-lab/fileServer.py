@@ -6,7 +6,7 @@ import os
  
 serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serverSocket.bind((socket.gethostname(), 50001))
-serverSocket.listen(5) #listen to up to 5 clients
+serverSocket.listen(1) #listen to up to 5 clients
 
 while True:
     (conn, address) = serverSocket.accept()
@@ -49,27 +49,5 @@ while True:
         fa.close()
         print("Sent file.")
     break
-
-def handle_client(serverSocket, address, id):
-    while True:
-        data=serverSocket.recv(1024)
-        decoded_data=data.decode("utf-8")
-        if not decoded_data:
-                print("\nconnection with client " + str(id) + " broken\n")
-                break
-        print("  CLIENT " + str(id) + " -> " + decoded_data)
-
-def server():
-    i=1
-    while 1<=5:
-        conn, address = serverSocket.accept()
-        child_pid = os.fork()
-        if child_pid == 0:
-            print("\nConnection with client successful")
-            break
-        else:
-            i += 1
-
-server()
 
 serverSocket.close()
