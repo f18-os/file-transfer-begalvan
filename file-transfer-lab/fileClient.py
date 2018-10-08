@@ -1,11 +1,9 @@
 #client file
 
-import socket
-import os
+import socket, os
  
 clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-clientSocket.connect((socket.gethostname(), 50001))
- 
+clientSocket.connect((socket.gethostname(), 50001)) #connect to server using port 50001
 file_sent = 'textfile.txt'
 
 if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
