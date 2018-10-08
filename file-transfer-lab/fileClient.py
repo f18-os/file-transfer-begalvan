@@ -39,3 +39,7 @@ if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:
     print("Received")
  
     clientSocket.close()
+
+#if no data on file
+else:
+    print("No data on file found")
