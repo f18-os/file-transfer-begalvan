@@ -1,13 +1,15 @@
-#server file
+# server file
 
 import socket
 import os 
 
- 
-serverSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serverSocket.bind((socket.gethostname(), 50001))
-serverSocket.listen(1) #listen to up to 5 clients
+num_of_clients = 5 #listen to up to 5 clients
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind((socket.gethostname(), 50001))
+server.listen(num_of_clients) 
+text_file = 'client_' + str(1) + '.txt'
 
+i = 1
 while True:
     (conn, address) = serverSocket.accept()
     file_sent = 'sentfile.txt'
