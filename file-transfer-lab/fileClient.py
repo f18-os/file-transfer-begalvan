@@ -27,7 +27,7 @@ def send_file():
     print("Receiving..")
     with open(text_file, 'wb') as fw:
         while True:
-            data = clientsock.recv(1024)
+            data = sock.recv(1024)
             if not data:
                 break
             fw.write(data)
@@ -38,3 +38,8 @@ def send_file():
 
 def file_empty():
     print("File does not exist or empty!")
+
+if os.path.isfile(text_file) and os.stat(text_file).st_size != 0:
+   send_file()
+else:
+    file_empty()
