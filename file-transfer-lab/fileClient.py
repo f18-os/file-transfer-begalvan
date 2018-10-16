@@ -1,45 +1,43 @@
-#client file
+# client file
 
 import socket
 import os
- 
-clientSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-clientSocket.connect((socket.gethostname(), 50001))
- 
-file_sent = 'sentfile.txt'
 
-#testing file type and byte size
-if os.path.isfile(file_sent) and os.stat(file_sent).st_size !=0:  
+clientsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+clientsock.connect((socket.gethostname(), 50001))
 
-    with open(file_sent, 'rb') as fs: #send textfile, handles file close
-        clientSocket.send(b'START')
+text_file = 'send_file.txt'
+
+if os.path.isfile(text_file) and os.stat(text_file).st_size != 0:
+    # Send file
+    with open(text_file, 'rb') as fileserver:
+        # Using with, no file close is necessary,
+        # with automatically handles file close
+        clientsock.send(b'start')
         while True:
-            data = fs.read(1024) 
-            print("Transferring file", data.decode('utf-8')) #uses UTF-8 enconding
-            clientSocket.send(data)
-            print("File sent", data.decode('utf-8'))
-
+            data = fileserver.read(1024)
+            print('Sending data', data.decode('utf-8'))
+            clientsock.send(data)
+            print('Sent data', data.decode('utf-8'))
             if not data:
-                print("No data on file")
+                print("File is empty now!")
                 done = False
-                print("Breaking from transfering file")
+                print('Breaking from sending data')
                 break
-    clientSocket.send(b'END')
-    fs.close()
- 
-#Receive file
-#print("Receiving..")
-    with open(file_sent, 'wb') as fw:
+        clientsock.send(b'ENDED')
+        fileserver.close()
+
+    # Receive file
+    print("Receiving..")
+    with open(text_file, 'wb') as fw:
         while True:
-            data = clientSocket.recv(1024)
+            data = clientsock.recv(1024)
             if not data:
                 break
             fw.write(data)
         fw.close()
-    print("Received")
- 
-    clientSocket.close()
+    print("Received..")
 
-#if no data on file
+    clientsock.close()
 else:
-    print("No data on file found")
+    print("No data on file)")
