@@ -1,7 +1,7 @@
 # File Transfer Lab
 
 Directory `file-transfer-lab` includes: 
-fileClient.py, fileServer.py, stammerProxy.py and textfile.txt
+fileClient.py, fileServer.py, stammerProxy.py and send_file.txt
 
 *   `fileClient.py` transfers a file to the server using port 50001
 
@@ -14,6 +14,8 @@ fileClient.py, fileServer.py, stammerProxy.py and textfile.txt
 
 The client-server files can be tested with or without and without the proxy
 
+These files run on Cygwin Python Version 3
+
 To use files without proxy: 
 
 * 1. Open fileServer.py:
@@ -24,7 +26,7 @@ To use files without proxy:
 
         python3 fileClient.py
 
-    client will immediately send textfile.txt to server, server will receive up to 100 bytes at a time
+    client will immediately send send_file.txt to server, server will receive up to 100 bytes at a time
 form socket and will write data to create new file
 
 To use files with proxy: 
@@ -41,4 +43,4 @@ To use files with proxy:
 
         python3 fileClient.py -s localhost:50001
 
-        client will immediately send textfile.txt to proxy listening on port 50000, proxy listening on port 50000 will get file and transfer to server listening on port 50001
+        client will immediately send send_file.txt to proxy listening on port 50000, proxy listening on port 50000 will get file and transfer to server listening on port 50001
