@@ -1,13 +1,7 @@
-The Arab Spring took place successfully in developing countries with an
-enormous population of tech-savvy and frustrated youth. However, social media’s
-impact on security is not limited to a single part of the world. Young people
-have also used social media to destabilize governments and create security
-problems in stable Western countries. The most prominent example took place
-barely months after the Arab Spring, in London. While many tout the Arab
-Spring as the evidence of the positive impact that social media can have, most
-see the London riots as the evidence of the negative.
-Protests and demonstrations broke out in London after the police controversially
-killed a young man and were not reprimanded. When police attempted to
-disperse a demonstration concerning the killing, violence broke out, culminating
-in riots and copycat riots that lasted for several days across the United Kingdom
-and cost hundreds of millions of pounds in damage.
+﻿Seek and truncate both create sparse files on 
+my system (Linux + ReiserFS). They have size 
+as needed but don't consume space on storage 
+device in fact. So this can not be proper solution 
+for fast space allocation. I have just created 100Gib 
+file having only 25Gib free and still have 25Gib free 
+in result.
