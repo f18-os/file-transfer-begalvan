@@ -12,7 +12,7 @@ text_file = 'client_' + str(1) + '.txt'
 i = 1
 while i <= num_of_clients:
     c, addr = server.accept()
-    child_pid = os.fork() #fork
+    child_pid = os.fork()
     if child_pid == 0:
         print("\nconnection successful with client " +
                 str(i) + str(addr) + "\n")
@@ -20,41 +20,40 @@ while i <= num_of_clients:
             # name of client in file
             text_file = 'client_' + str(i) + '.txt'
 
-    #Receive, output and save file
-    with open(file_sent, "wb") as fw: # opens file and returns stream
-        print("Receiving...")
+    # Receive, output and save file
+    with open(text_file, "wb") as fw: #opens file and returns stream
+        print("Receiving..")
         while True:
-            print("receiving..")
-            data = c.recv(100) #receive up to 100 bytes from the socket
+            print('receiving')
+            data = c.recv(100) #receive up to 100 bytes from socket
             if data == b'start': #bytes-start
                 continue
             elif data == b'end':
                 print("Breaking from file write")
                 break
             else:
-               decoded_data = data.decode("utf-8")
+                decoded_data = data.decode("utf-8")
                 if not decoded_data:
                     print("\nconnection with client " + str(i) + " broken\n")
                     print("  CLIENT " + str(i) + " -> " + decoded_data)
                     break
 
                 else:
-                    print('Received: ', decoded_data)
+                    print("Received: ", decoded_data)
                     fw.write(data)
-                    print('Wrote to file', decoded_data)
+                    print("Wrote to file", decoded_data)
                 
         fw.close()
-
-        print("Received")
+        print("Received..")
         decoded_data = data.decode("utf-8")
         if not decoded_data:
             print("\nconnection with client " + str(i) + " broken\n")
             break
         print("  CLIENT " + str(i) + " -> " + decoded_data)
 
-    #Append and send file
+    # Append and send file.
     print("Opening file ", text_file)
-    with open(file_sent, 'ab+') as fa:
+    with open(text_file, 'ab+') as fa:
         print("Opened file")
         print("Appending string to file.")
         string = b"Append this to file."
@@ -63,7 +62,7 @@ while i <= num_of_clients:
         print("Sending file.")
         while True:
             data = fa.read(1024)
-            conn.send(data)
+            c.send(data)
             if not data:
                 break
         fa.close()
