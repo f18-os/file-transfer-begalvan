@@ -53,7 +53,7 @@ while i <= num_of_clients:
         print("  CLIENT " + str(i) + " -> " + decoded_data)
 
     #Append and send file
-    print("Opening file ", file_sent)
+    print("Opening file ", text_file)
     with open(file_sent, 'ab+') as fa:
         print("Opened file")
         print("Appending string to file.")
@@ -61,7 +61,6 @@ while i <= num_of_clients:
         fa.write(string)
         fa.seek(0, 0)
         print("Sending file.")
-
         while True:
             data = fa.read(1024)
             conn.send(data)
@@ -71,4 +70,6 @@ while i <= num_of_clients:
         print("Sent file.")
     break
 
-serverSocket.close()
+else:
+    i += 1
+server.close()
