@@ -13,7 +13,7 @@ def send_file():
         sock.send(b'start')
         while True:
             data = fs.read(1024)
-            print('Sending data', data.decode('utf-8'))
+            print('Sending data', data.decode('utf-8')) #uses utf-8 enconding
             sock.send(data)
             print('Sent data', data.decode('utf-8'))
             if not data:
@@ -23,7 +23,7 @@ def send_file():
         sock.send(b'end')
         fs.close()
 
-    # Receive file
+    # file received
     print("Receiving..")
     with open(text_file, 'wb') as fw:
         while True:
@@ -34,6 +34,7 @@ def send_file():
         fw.close()
     print("Received..")
 
-    clientsock.close()
-else:
-    print("No data on file)")
+    sock.close()
+
+def file_empty():
+    print("File does not exist or empty!")
