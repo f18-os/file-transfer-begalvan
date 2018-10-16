@@ -25,19 +25,32 @@ while i <= num_of_clients:
         print("Receiving...")
         while True:
             print("receiving..")
-            data = conn.recv(100) #receive up to 100 bytes from the socket
-            if data == b'BEGIN': #bytes-BEGIN
+            data = c.recv(100) #receive up to 100 bytes from the socket
+            if data == b'start': #bytes-start
                 continue
-            elif data == b'ENDED':
+            elif data == b'end':
                 print("Breaking from file write")
                 break
             else:
-                print("Received: ", data.decode('utf-8'))
-                fw.write(data)
-                print("Wrote to file", data.decode('utf-8'))
+               decoded_data = data.decode("utf-8")
+                if not decoded_data:
+                    print("\nconnection with client " + str(i) + " broken\n")
+                    print("  CLIENT " + str(i) + " -> " + decoded_data)
+                    break
+
+                else:
+                    print('Received: ', decoded_data)
+                    fw.write(data)
+                    print('Wrote to file', decoded_data)
+                
         fw.close()
 
         print("Received")
+        decoded_data = data.decode("utf-8")
+        if not decoded_data:
+            print("\nconnection with client " + str(i) + " broken\n")
+            break
+        print("  CLIENT " + str(i) + " -> " + decoded_data)
 
     #Append and send file
     print("Opening file ", file_sent)
