@@ -38,8 +38,9 @@ def send_file(): #send text file
 
 def file_empty():
     print("No data on file found, or no file")
+
 #testing file type and byte size
-if os.path.isfile(text_file) and os.stat(text_file).st_size != 0:
+if os.path.isfile(text_file) and os.stat(text_file).st_size != 0: #file size>0
    send_file()
-else:
+else: #file size=0
     file_empty()
