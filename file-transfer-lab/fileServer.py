@@ -12,7 +12,7 @@ text_file = 'client_' + str(1) + '.txt'
 i = 1
 while i <= num_of_clients:
     c, addr = server.accept()
-    child_pid = os.fork()
+    child_pid = os.fork() #fork
     if child_pid == 0:
         print("\nconnection successful with client " +
                 str(i) + str(addr) + "\n")
