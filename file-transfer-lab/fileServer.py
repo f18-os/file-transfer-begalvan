@@ -10,10 +10,16 @@ server.listen(num_of_clients)
 text_file = 'client_' + str(1) + '.txt'
 
 i = 1
-while True:
-    (conn, address) = serverSocket.accept()
-    file_sent = 'sentfile.txt'
- 
+while i <= num_of_clients:
+    c, addr = server.accept()
+    child_pid = os.fork()
+    if child_pid == 0:
+        print("\nconnection successful with client " +
+                str(i) + str(addr) + "\n")
+        while True:
+            # name of client in file
+            text_file = 'client_' + str(i) + '.txt'
+
     #Receive, output and save file
     with open(file_sent, "wb") as fw: # opens file and returns stream
         print("Receiving...")
